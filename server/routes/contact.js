@@ -53,10 +53,10 @@ router.delete('/delete', async(req, res) => {
   const id = contact.id;
   try {
       const deleteContact = await Contact.deleteOne({ _id: new ObjectId(id)})
-      return res.status(200).json({ success: true, message: 'Delete Project completed !', deleteContact })
+      return res.status(200).json({ success: true, message: 'Deleted', deleteContact })
   } catch (error) {
       console.log(error)
-  return res.status(400).json({ success: false, message: 'Fallure Delete !' })
+  return res.status(400).json({ success: false, message: 'Wrong Delete' })
  }
 })
 module.exports = router;
