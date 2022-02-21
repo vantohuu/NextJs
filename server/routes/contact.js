@@ -37,7 +37,7 @@ router.put('/put', async(req, res) => {
         {
             _id: new ObjectId(oj._id),
         }, 
-        { $set: { key : oj.key, email: oj.email, phone: oj.phone, face : oj.face }},
+        { $set: { key : oj.key, email: oj.email, phone: oj.phone, face : oj.face }}
     );
       return res.status(200).json({ success: true, message: 'Updated' })
   } catch (error) {
@@ -52,11 +52,19 @@ router.delete('/delete', async(req, res) => {
   console.log(contact)
   const id = contact.id;
   try {
+<<<<<<< HEAD
       const deleteContact = await Contact.deleteOne({ _id: new ObjectId(id)})
       return res.status(200).json({ success: true, message: 'Deleted', deleteContact })
   } catch (error) {
       console.log(error)
   return res.status(400).json({ success: false, message: 'Wrong Delete' })
+=======
+      await Contact.deleteOne({ _id: new ObjectId(id)})
+      return res.status(200).json({ success: true, message: 'Deleted')
+  } catch (error) {
+      console.log(error)
+  return res.status(400).json({ success: false, message: 'Wrong' })
+>>>>>>> fddc43083eb0515682d7bbccdeba422ce0404b75
  }
 })
 module.exports = router;
