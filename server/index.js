@@ -4,7 +4,10 @@ const cors = require('cors')
 const mongoose = require('mongoose')
 const R_account = require('./routes/account')
 const R_contact = require('./routes/contact')
-const R_project = require('./routes/product')
+const R_product = require('./routes/product')
+const R_prize = require('./routes/prize')
+const R_user_prize = require('./routes/user-prize')
+
 const app = express()
 const port = 5000
 
@@ -27,7 +30,9 @@ connectDB()
 
 app.use('/api/accounts', R_account);
 app.use('/api/contacts', R_contact);
-app.use('/api/products', R_project);
+app.use('/api/products', R_product);
+app.use('/api/prizes', R_prize);
+app.use('/api/user-prize', R_user_prize);
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}`)

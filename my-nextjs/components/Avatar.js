@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import styles from '../styles/Home.module.css'
-import { useRouter } from 'next/router';
 import axios from 'axios';
+
 const Avatar = () =>
 {
     const [clickForm, setclickForm] = useState(true);
@@ -52,8 +52,11 @@ const Avatar = () =>
                 Liên hệ
             </button>
 
+            <a className={styles.ttgifts} href= 'http://localhost:3000/tro-choi'>
+                Vòng quay may mắn.
+            </a>
             <div className={styles.containerForm} style={{display : clickForm ? 'none' : 'flex'}}>
-                <form className={styles.form} onSubmit={handleSubmit} method='post'>
+                <form className={styles.form} onSubmit={handleSubmit}>
                     <h1>
                         Liên hệ
                     </h1>

@@ -2,6 +2,7 @@ import "antd/dist/antd.css";
 import { Table, Tag, Space, Modal, Input } from 'antd';
 import { useState, useEffect } from "react";
 import axios from 'axios';
+import Head from 'next/head'
 
 
 export default function Data() {
@@ -79,14 +80,14 @@ export default function Data() {
 
   const onUpdateContactOK = async () => {
     await axios.put('http://localhost:5000/api/contacts/put', contact)
-    .then(function (response) {
-      console.log(response);
-    })
+      .then(function (response) {
+        console.log(response);
+      })
       .catch(function (error) {
         console.log(error);
       });
     setStateEdit(false);
-    
+
   }
 
   const onDeleteContact = (record) => {
@@ -110,6 +111,10 @@ export default function Data() {
 
   return (
     <div>
+      <Head>
+        <title>Server contact</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
       <Table columns={columns} dataSource={data} />
       <Modal title='Update contact'
         okText='Save'
